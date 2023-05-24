@@ -1,28 +1,64 @@
 
-mole1.addEventListener("click", wack);
+mole1.addEventListener('click', function(e){
+    var eventTarget = e.target.id;
+    wack(eventTarget);
+    });
+    mole2.addEventListener('click', function(e){
+        var eventTarget = e.target.id;
+        wack(eventTarget);
+        });
+        mole3.addEventListener('click', function(e){
+            var eventTarget = e.target.id;
+            wack(eventTarget);
+            });
+            mole4.addEventListener('click', function(e){
+                var eventTarget = e.target.id;
+                wack(eventTarget);
+                });
+                mole5.addEventListener('click', function(e){
+                    var eventTarget = e.target.id;
+                    wack(eventTarget);
+                    });
+                    mole6.addEventListener('click', function(e){
+                        var eventTarget = e.target.id;
+                        wack(eventTarget);
+                        });
+                        mole7.addEventListener('click', function(e){
+                            var eventTarget = e.target.id;
+                            wack(eventTarget);
+                            });
+                            mole8.addEventListener('click', function(e){
+                                var eventTarget = e.target.id;
+                                wack(eventTarget);
+                                });
+                                mole9.addEventListener('click', function(e){
+                                    var eventTarget = e.target.id;
+                                    wack(eventTarget);
+                                    });
+
 var count = 0;
 var disp = document.getElementById("display");
 
 
-function wack(){
+function wack(dataId){
     count++;
     disp.innerHTML = count;
-    document.getElementById("mole1").style.display = "none";
-    document.getElementById("mole1").disabled = true;
-    setTimeout(ohHiMole, (1000 + randomInt()));
+    document.getElementById(dataId).style.display = "none";
+    document.getElementById(dataId).disabled = true;
+    setTimeout(ohHiMole, (1000 + randomInt()),dataId);
     
 }
 
-function ohHiMole(){
-    document.getElementById("mole1").style.display = "block";
-    document.getElementById("mole1").disabled = false;
-    setTimeout(ohByeMole, (200 + randomSpazz()));
+function ohHiMole(dataId){
+    document.getElementById(dataId).style.display = "block";
+    document.getElementById(dataId).disabled = false;
+    setTimeout(ohByeMole, (200 + randomSpazz()),dataId);
 }
 
-function ohByeMole(){
-    document.getElementById("mole1").style.display = "none";
-    document.getElementById("mole1").disabled = true;
-    setTimeout(ohHiMole, (1000 + randomInt()));
+function ohByeMole(dataId){
+    document.getElementById(dataId).style.display = "none";
+    document.getElementById(dataId).disabled = true;
+    setTimeout(ohHiMole, (1000 + randomInt()),dataId);
 }
 
 

@@ -19,7 +19,7 @@ for (let i = 0; i < moles.length; i++) {
     });
 }
 
-/* begins to randomize the moles by sending target ids to a wack function */
+/* begins to randomize the moles by sending all target ids to a "wack" function */
 function beginGame() {
     for (let i = 0; i < moles.length; i++) {
         var eventTarget = moles[i].id;
@@ -78,7 +78,7 @@ var disp = document.getElementById("display");
 function wack(dataId){
     count++;
     disp.innerHTML = count;
-    document.getElementById(dataId).style.display = "none";
+    document.getElementById(dataId).style.visibility = "hidden";
     document.getElementById(dataId).disabled = true;
     setTimeout(ohHiMole, (1000 + randomInt()),dataId);
     
@@ -88,7 +88,7 @@ function wack(dataId){
  * @param {*} dataId the id of a button
  */
 function ohHiMole(dataId){
-    document.getElementById(dataId).style.display = "block";
+    document.getElementById(dataId).style.visibility = "visible";
     document.getElementById(dataId).disabled = false;
     setTimeout(ohByeMole, (200 + randomSpazz()),dataId);
 }
@@ -98,7 +98,7 @@ function ohHiMole(dataId){
  * @param {*} dataId the id of a button
  */
 function ohByeMole(dataId){
-    document.getElementById(dataId).style.display = "none";
+    document.getElementById(dataId).style.visibility = "hidden";
     document.getElementById(dataId).disabled = true;
     setTimeout(ohHiMole, (1000 + randomInt()),dataId);
 }

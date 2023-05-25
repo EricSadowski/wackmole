@@ -112,9 +112,15 @@ function randomInt() {
 function gameOver() {
   // This cancels the setInterval, so the updateTimer stops getting called
   clearInterval(timer);
+  console.log("over")
+  $(".mole").hide();
+  $("#timerBox").hide();
+  restart();
+
   
 }
 
+// takes a second (1000ms) off the time left, updates the html to reflect that. ends game when goes below 0
 function updateTimer() {
   timeLeft = timeLeft - 1;
   if(timeLeft >= 0)
@@ -125,12 +131,14 @@ function updateTimer() {
 }
 
 function startTimer() {
-  // setInterval is a built-in function that will call the given function
-  // every N milliseconds (1 second = 1000 ms)
+  // calls update timer every second to take a second off the count
   timer = setInterval(updateTimer, 1000);
-  
-  // It will be a whole second before the time changes, so we'll call the update
-  // once ourselves
+  //call update timer to get it going before the intercal
   updateTimer();
   
+}
+
+function restart(){
+  timeLeft = 5
+  $("#startGame").show();
 }

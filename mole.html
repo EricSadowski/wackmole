@@ -13,7 +13,7 @@
   <header>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-6 text-center">
+        <div class="col-md-6 text-center">
           <h1 class="m-5"><span id="moleDisplay">Mole Score is: </span><span id="display">0</span></h1>
         </div>
       </div>
@@ -27,30 +27,33 @@
     
     </div>
 
-    <div class="container-fluid">
+    <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-6">
+        <div class="col-md-4">
           <div id="gameboard">
-            <div class="row justify-content-center">
-              <div class="col-lg-4 p-3"><button class = "mole" id="mole1">Wack me</button></div>
-              <div class="col-lg-4 p-3"><button class = "mole" id="mole2">Wack me</button></div>
-              <div class="col-lg-4 p-3"><button class = "mole" id="mole3">Wack me</button></div>
+            <div class="row justify-content-around">
+              <div class="col-md-2 p-3"><button class = "mole" id="mole1">Wack me</button></div>
+              <div class="col-md-2 p-3"><button class = "mole" id="mole2">Wack me</button></div>
+              <div class="col-md-2 p-3"><button class = "mole" id="mole3">Wack me</button></div>
             </div>
-            <div class="row justify-content-center" id="central-board">
-              <div class="col-lg-4 p-3"><button class = "mole" id="mole4">Wack me</button></div>
-              <div class="col-lg-4 p-3"><button class = "mole" id="mole5">Wack me</button></div>
-              <div class="col-lg-4 p-3"><button class = "mole" id="mole6">Wack me</button></div>
+            <div class="row justify-content-around" id="central-board">
+              <div class="col-md-2 p-3"><button class = "mole" id="mole4">Wack me</button></div>
+              <div class="col-md-2 p-3"><button class = "mole" id="mole5">Wack me</button></div>
+              <div class="col-md-2 p-3"><button class = "mole" id="mole6">Wack me</button></div>
             </div>
-            <div class="row justify-content-center">
-              <div class="col-lg-4 p-3"><button class = "mole" id="mole7">Wack me</button></div>
-              <div class="col-lg-4 p-3"><button class = "mole" id="mole8">Wack me</button></div>
-              <div class="col-lg-4 p-3"><button class = "mole" id="mole9">Wack me</button></div>
+            <div class="row justify-content-around">
+              <div class="col-md-2 p-3"><button class = "mole" id="mole7">Wack me</button></div>
+              <div class="col-md-2 p-3"><button class = "mole" id="mole8">Wack me</button></div>
+              <div class="col-md-2 p-3"><button class = "mole" id="mole9">Wack me</button></div>
             </div>
+          </div>
+          <div class="row justify-content-center"></div>
+          <div class="col-md-7 mt-2">
+            <p id="timerBox">You have: <span id="timer">0</span> seconds remaining!</p>
           </div>
         </div>
       </div>
     </div>
-    <p id="timerBox">You have: <span id="timer">0</span> seconds remaining!</p>
 
   </main>
 

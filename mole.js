@@ -40,6 +40,7 @@ for (let i = 0; i < moles.length; i++) {
  * begins to randomize the moles by sending all target ids to a "wack" function
  */
 function beginGame() {
+    $('#moleDisplay').html("Mole Score is: ");
     $("#startGame").hide();
     $(".mole").show();
     $("#timerBox").show();
@@ -118,7 +119,7 @@ function randomInt() {
 function gameOver() {
   // This cancels the setInterval, so the updateTimer stops getting called
   clearInterval(timer);
-  console.log("over")
+  $('#moleDisplay').html("Game Over! Final Score: ");
   $(".mole").hide();
   $("#timerBox").hide();
   restart();
@@ -153,5 +154,6 @@ function startTimer() {
  */
 function restart(){
   timeLeft = 5
+  count = 0;
   $("#startGame").show();
 }

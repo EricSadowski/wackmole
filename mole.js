@@ -1,5 +1,33 @@
 
+/* initialize mole variables by ids */
+var mole1 = document.getElementById('mole1');
+var mole2 = document.getElementById('mole2');
+var mole3 = document.getElementById('mole3');
+var mole4 = document.getElementById('mole4');
+var mole5 = document.getElementById('mole5');
+var mole6 = document.getElementById('mole6');
+var mole7 = document.getElementById('mole7');
+var mole8 = document.getElementById('mole8');
+var mole9 = document.getElementById('mole9');
 
+var moles = document.querySelectorAll('.mole');
+
+/* add event listeners to each mole and begin game */
+for (let i = 0; i < moles.length; i++) {
+    moles[i].addEventListener('click', function(e) {
+        beginGame();
+    });
+}
+
+/* begins to randomize the moles by sending target ids to a wack function */
+function beginGame() {
+    for (let i = 0; i < moles.length; i++) {
+        var eventTarget = moles[i].id;
+        wack(eventTarget);
+    }
+}
+
+/*
 // an event listener on each mole that takes the target id of the button clicked and sends it to a function
 mole1.addEventListener('click', function(e){
     var eventTarget = e.target.id;
@@ -37,6 +65,7 @@ mole1.addEventListener('click', function(e){
                                     var eventTarget = e.target.id;
                                     wack(eventTarget);
                                     });
+*/
 
 var count = 0;
 var disp = document.getElementById("display");

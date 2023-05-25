@@ -2,6 +2,13 @@
 // declaring intial score, hiding moles in holes and revealing start button
 var count = 0;
 $(".mole").hide();
+
+//timer varibles and declarations
+$("#timerBox").hide();
+var timer; 
+var timeLeft = 5; // seconds
+
+
 $("#central-board").append('<button id="startGame">Start Game</button>');
 var startButton = document.getElementById('startGame');
 startButton.addEventListener('click', beginGame);
@@ -32,6 +39,8 @@ for (let i = 0; i < moles.length; i++) {
 function beginGame() {
     $("#startGame").hide();
     $(".mole").show();
+    $("#timerBox").show();
+    startTimer();
     count = count-9;
 
     for (let i = 0; i < moles.length; i++) {
@@ -94,3 +103,34 @@ function randomInt() {
   function randomSpazz() { 
     return Math.floor(Math.random() * (700 - 1 + 1) + 1)
   }
+
+
+
+
+
+// What to do when the timer runs out
+function gameOver() {
+  // This cancels the setInterval, so the updateTimer stops getting called
+  clearInterval(timer);
+  
+}
+
+function updateTimer() {
+  timeLeft = timeLeft - 1;
+  if(timeLeft >= 0)
+    $('#timer').html(timeLeft);
+  else {
+    gameOver();
+  }
+}
+
+function startTimer() {
+  // setInterval is a built-in function that will call the given function
+  // every N milliseconds (1 second = 1000 ms)
+  timer = setInterval(updateTimer, 1000);
+  
+  // It will be a whole second before the time changes, so we'll call the update
+  // once ourselves
+  updateTimer();
+  
+}

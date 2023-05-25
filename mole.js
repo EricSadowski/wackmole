@@ -2,7 +2,7 @@
 // declaring intial score, hiding moles in holes and revealing start button
 var count = 0;
 $(".mole").hide();
-$("#gameboard").append('<button id="startGame">Start Game</button>');
+$("#central-board").append('<button id="startGame">Start Game</button>');
 var startButton = document.getElementById('startGame');
 startButton.addEventListener('click', beginGame);
 

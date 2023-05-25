@@ -1,4 +1,12 @@
 
+// declaring intial score, hiding moles in holes and revealing start button
+var count = 0;
+$(".mole").hide();
+$("#gameboard").append('<button id="startGame">Start Game</button>');
+var startButton = document.getElementById('startGame');
+startButton.addEventListener('click', beginGame);
+
+
 /* initialize mole variables by ids */
 var mole1 = document.getElementById('mole1');
 var mole2 = document.getElementById('mole2');
@@ -14,16 +22,23 @@ var moles = document.querySelectorAll('.mole');
 
 /* add event listeners to each mole and begin game */
 for (let i = 0; i < moles.length; i++) {
-    moles[i].addEventListener('click', function(e) {
-        beginGame();
+    moles[i].addEventListener('click', function() {
+        var eventTarget = moles[i].id;
+        wack(eventTarget);
     });
 }
 
 /* begins to randomize the moles by sending all target ids to a "wack" function */
 function beginGame() {
+    $("#startGame").hide();
+    $(".mole").show();
+    count = count-9;
+
     for (let i = 0; i < moles.length; i++) {
+        
         var eventTarget = moles[i].id;
         wack(eventTarget);
+        
     }
 }
 
@@ -33,41 +48,9 @@ mole1.addEventListener('click', function(e){
     var eventTarget = e.target.id;
     wack(eventTarget);
     });
-    mole2.addEventListener('click', function(e){
-        var eventTarget = e.target.id;
-        wack(eventTarget);
-        });
-        mole3.addEventListener('click', function(e){
-            var eventTarget = e.target.id;
-            wack(eventTarget);
-            });
-            mole4.addEventListener('click', function(e){
-                var eventTarget = e.target.id;
-                wack(eventTarget);
-                });
-                mole5.addEventListener('click', function(e){
-                    var eventTarget = e.target.id;
-                    wack(eventTarget);
-                    });
-                    mole6.addEventListener('click', function(e){
-                        var eventTarget = e.target.id;
-                        wack(eventTarget);
-                        });
-                        mole7.addEventListener('click', function(e){
-                            var eventTarget = e.target.id;
-                            wack(eventTarget);
-                            });
-                            mole8.addEventListener('click', function(e){
-                                var eventTarget = e.target.id;
-                                wack(eventTarget);
-                                });
-                                mole9.addEventListener('click', function(e){
-                                    var eventTarget = e.target.id;
-                                    wack(eventTarget);
-                                    });
 */
 
-var count = 0;
+
 var disp = document.getElementById("display");
 
 /**

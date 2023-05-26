@@ -3,6 +3,12 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
+
+#titleTop {
+  font-family: 'Bungee', cursive;
+  font-size: 50px;
+}
+
 #gameboard {
     background-color: #f5f5f5;
     border-radius: 10px;

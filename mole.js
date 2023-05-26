@@ -7,6 +7,24 @@ $(".mole").hide();
 $('#hiScoreWordDisplay').hide();
 $('#hiScoreDisplay').hide();
 
+var gameboard = $("#gameboard");
+
+// cursor becomes an upright hammer on gameboard hover, changes back when off the gameboard
+gameboard.hover(function() {
+  gameboard.addClass("hover");
+  }, function() {
+    gameboard.removeClass("hover");
+  });
+
+// add hitting class when mousedown
+gameboard.mousedown(function() {
+  gameboard.addClass("hitting");
+  });
+  
+// remove hitting class on mouseup  
+gameboard.mouseup(function() {
+  gameboard.removeClass("hitting");
+  });
 
 //lil bug control/timeoutkiller section
 var wackTimeout;

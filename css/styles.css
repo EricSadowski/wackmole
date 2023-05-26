@@ -7,6 +7,18 @@
     text-align: center;
   }
 
+#gameboard.hover {
+  cursor: url("/images/cursor.png") 50 50, auto;
+}
+
+#gameboard.hitting {
+  cursor: url("/images/cursorhit.png") 50 50, auto;
+}
+
+body.background {
+  background-color: #f5d671;
+}  
+
   /* Mole buttons */
     .mole {
       display: block; 
@@ -14,13 +26,12 @@
       height: auto;
       border-radius: 5px;
       padding: 10px 20px;
-      cursor: pointer;
       transition: background-color 0.3s;
       margin: 30px 15px;
     }
   
   .mole:hover {
-    background-color: #ca9a15;
+    background-color: #f5d671;
   }
   
   /* Score display */

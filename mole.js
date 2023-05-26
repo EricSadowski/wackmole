@@ -70,10 +70,15 @@ for (let i = 0; i < moles.length; i++) {
  * begins to randomize the moles by sending all target ids to a "wack" function
  */
 function beginGame() {
+
+  // if you have a highscore the panel unlocks
   if(highscore>10){
     $('#hiScoreWordDisplay').show();
     $('#hiScoreDisplay').show();
   }
+
+  //various play again and start game displays removed
+  // timer and moles appear
 
     $('#moleDisplay').html("Mole Score is: ");
     $("#startGame").hide();
@@ -82,8 +87,12 @@ function beginGame() {
     $(".mole").show();
     $("#timerBox").show();
     startTimer();
+
+    // due to all moles being wacked at once to star the loop
+    // the score is reduced by 9 to compensate
     count = count-9;
 
+//all moles wacked
     for (let i = 0; i < moles.length; i++) {
         
         var eventTarget = moles[i].id;
@@ -160,17 +169,22 @@ function randomInt() {
  */
 function gameOver() {
   
+  // win lose conditions
   if(count>=10){
     $("#playAgain").html("You Win! Play Again?")
   }else{
     $("#playAgain").html("You Lose, Play Again?")
   }
 
+  // if you got a new highscore message displayed
   if(count>highscore){
     highscore = count;
     $("#scoreboard").append('<h1 id="newHighAlert">New High Score '+ highscore +'!!!</h1>');
     $("#hiScoreDisplay").html(highscore);
   }
+
+  // clears the timer, shows play again button, displays final score, hides the moles and timer
+  // calls restart function
   clearInterval(timer);
   $('#moleDisplay').html("Game Over! Final Score: ");
   $("#playAgain").show();
@@ -205,6 +219,8 @@ function startTimer() {
  * restarts the game, called from game over.
  */
 function restart(){
+
+  // resets time and count, shows start button
   timeLeft = 10
   count = 0;
   $("#startGame").show();

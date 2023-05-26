@@ -60,7 +60,7 @@ function beginGame() {
     $('#moleDisplay').html("Mole Score is: ");
     $("#startGame").hide();
     $("#playAgain").hide();
-    $("#newHighAlert").html("");
+    $("#newHighAlert").remove();
     $(".mole").show();
     $("#timerBox").show();
     startTimer();
@@ -138,18 +138,25 @@ function randomInt() {
 /**
  * What to do when the timer runs out
  */
-function displayWinMessage(){
-  var winMessage = $("<div></div>").text("Congratulations!");
-      winMessage.css({
-        fontSize: "48px",
-        textAlign: "center",
-        marginTop: "200px"
-      });
-      $("body").append(winMessage);
-}
+// function displayWinMessage(){
+//   var winMessage = $("<div></div>").text("Congratulations!");
+//       winMessage.css({
+//         fontSize: "48px",
+//         textAlign: "center",
+//         marginTop: "200px"
+//       });
+//       $("body").append(winMessage);
+// }
 
 function gameOver() {
   // This cancels the setInterval, so the updateTimer stops getting called
+
+  if(count>=10){
+    $("#playAgain").html("You Win! Play Again?")
+  }else{
+    $("#playAgain").html("You Lose, Play Again?")
+  }
+
 
   if(count>highscore){
     highscore = count;

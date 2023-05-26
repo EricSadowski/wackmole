@@ -6,22 +6,21 @@
     margin-top: 30px;
     text-align: center;
   }
-  
+
   /* Mole buttons */
-   .mole {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin: 30px 15px;
-  }
+    .mole {
+      display: block; 
+      width: 100%; 
+      height: auto;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin: 30px 15px;
+    }
   
   .mole:hover {
-    background-color: #45a049;
+    background-color: #ca9a15;
   }
   
   /* Score display */

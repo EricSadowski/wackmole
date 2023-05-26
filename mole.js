@@ -3,10 +3,15 @@
 var count = 0;
 $(".mole").hide();
 
+//lil bug control/timeoutkiller section
+var wackTimeout;
+var hiTimeout;
+var byeTimeout;
+
 //timer varibles and declarations
 $("#timerBox").hide();
 var timer; 
-var timeLeft = 5; // seconds
+var timeLeft = 10; // seconds
 
 
 $("#central-board").append('<button id="startGame">Start Game</button>');
@@ -79,17 +84,19 @@ function wack(dataId){
     disp.innerHTML = count;
     document.getElementById(dataId).style.visibility = "hidden";
     document.getElementById(dataId).disabled = true;
-    setTimeout(ohHiMole, (1000 + randomInt()),dataId);
+    wackTimeout = setTimeout(ohHiMole, (1000 + randomInt()),dataId);
+    
     
 }
 /**
- *  reappear function that if not pressed quickly dissapears
+ *  reappear function (mole comes back) that if not pressed quickly dissapears
  * @param {*} dataId the id of a button
  */
 function ohHiMole(dataId){
+    clearTimeout(wackTimeout);
     document.getElementById(dataId).style.visibility = "visible";
     document.getElementById(dataId).disabled = false;
-    setTimeout(ohByeMole, (200 + randomSpazz()),dataId);
+    hiTimeout = setTimeout(ohByeMole, (200 + randomSpazz()),dataId);
 }
 
 /**
@@ -97,9 +104,10 @@ function ohHiMole(dataId){
  * @param {*} dataId the id of a button
  */
 function ohByeMole(dataId){
+    
     document.getElementById(dataId).style.visibility = "hidden";
     document.getElementById(dataId).disabled = true;
-    setTimeout(ohHiMole, (1000 + randomInt()),dataId);
+    byeTimeout = setTimeout(ohHiMole, (1000 + randomInt()),dataId);
 }
 
 // random number various generators
@@ -108,7 +116,7 @@ function randomInt() {
   }
 
   function randomSpazz() { 
-    return Math.floor(Math.random() * (700 - 1 + 1) + 1)
+    return Math.floor(Math.random() * (2000 - 1 + 1) + 1)
   }
 
 
@@ -144,10 +152,9 @@ function updateTimer() {
 }
 
 /**
- * calls update timer every second to take a second off the count
+ * starts timer then calls update timer every second to take a second off the count
  */
 function startTimer() {
-  // calls update timer every second to take a second off the count
   timer = setInterval(updateTimer, 1000);
   updateTimer();
   
@@ -157,7 +164,7 @@ function startTimer() {
  * restarts the game, called from game over.
  */
 function restart(){
-  timeLeft = 5
+  timeLeft = 10
   count = 0;
   $("#startGame").show();
 }

@@ -33,6 +33,16 @@
     font-size: 36px;
     font-weight: bold;
   }
+
+  #hiScoreWordDisplay {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  #hiScoreDisplay {
+    font-size: 36px;
+    font-weight: bold;
+  }
   
   /* Timer box */
   #timerBox {

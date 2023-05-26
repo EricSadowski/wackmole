@@ -153,28 +153,18 @@ function randomInt() {
 
 //  TIMER SECTION //
 
+
 /**
- * What to do when the timer runs out
+ * On the end of the game this function is called, 
+ * displays the win/lose as well as hides/stops game, shows hi-score and shows replay button.
  */
-// function displayWinMessage(){
-//   var winMessage = $("<div></div>").text("Congratulations!");
-//       winMessage.css({
-//         fontSize: "48px",
-//         textAlign: "center",
-//         marginTop: "200px"
-//       });
-//       $("body").append(winMessage);
-// }
-
 function gameOver() {
-  // This cancels the setInterval, so the updateTimer stops getting called
-
+  
   if(count>=10){
     $("#playAgain").html("You Win! Play Again?")
   }else{
     $("#playAgain").html("You Lose, Play Again?")
   }
-
 
   if(count>highscore){
     highscore = count;
@@ -187,12 +177,11 @@ function gameOver() {
   $(".mole").hide();
   $("#timerBox").hide();
   restart();
-
   
 }
 
 /**
- * takes a second (1000ms) off the time left, updates the html to reflect that. ends game when goes below 0
+ * takes a second (1000ms) off of the time left, updates the html to reflect that. ends game when goes below 0
  */
 function updateTimer() {
   timeLeft = timeLeft - 1;
@@ -204,7 +193,7 @@ function updateTimer() {
 }
 
 /**
- * starts timer then calls update timer every second to take a second off the count
+ * starts timer then calls update timer every second to take a second off the visual count
  */
 function startTimer() {
   timer = setInterval(updateTimer, 1000);

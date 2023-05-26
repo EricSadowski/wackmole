@@ -1,7 +1,12 @@
 
 // declaring intial score, hiding moles in holes and revealing start button
+// hiding high score until it is hit
 var count = 0;
+var highscore = 0;
 $(".mole").hide();
+$('#hiScoreWordDisplay').hide();
+$('#hiScoreDisplay').hide();
+
 
 //lil bug control/timeoutkiller section
 var wackTimeout;
@@ -47,9 +52,15 @@ for (let i = 0; i < moles.length; i++) {
  * begins to randomize the moles by sending all target ids to a "wack" function
  */
 function beginGame() {
+  if(highscore>10){
+    $('#hiScoreWordDisplay').show();
+    $('#hiScoreDisplay').show();
+  }
+
     $('#moleDisplay').html("Mole Score is: ");
     $("#startGame").hide();
     $("#playAgain").hide();
+    $("#newHighAlert").html("");
     $(".mole").show();
     $("#timerBox").show();
     startTimer();
@@ -139,6 +150,12 @@ function displayWinMessage(){
 
 function gameOver() {
   // This cancels the setInterval, so the updateTimer stops getting called
+
+  if(count>highscore){
+    highscore = count;
+    $("#scoreboard").append('<h1 id="newHighAlert">New High Score '+ highscore +'!!!</h1>');
+    $("#hiScoreDisplay").html(highscore);
+  }
   clearInterval(timer);
   $('#moleDisplay').html("Game Over! Final Score: ");
   $("#playAgain").show();

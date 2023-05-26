@@ -10,6 +10,8 @@ var timeLeft = 5; // seconds
 
 
 $("#central-board").append('<button id="startGame">Start Game</button>');
+$("#scoreboard").append('<h1 id="playAgain">Play Again?</h1>');
+$("#playAgain").hide();
 var startButton = document.getElementById('startGame');
 startButton.addEventListener('click', beginGame);
 
@@ -42,6 +44,7 @@ for (let i = 0; i < moles.length; i++) {
 function beginGame() {
     $('#moleDisplay').html("Mole Score is: ");
     $("#startGame").hide();
+    $("#playAgain").hide();
     $(".mole").show();
     $("#timerBox").show();
     startTimer();
@@ -120,6 +123,7 @@ function gameOver() {
   // This cancels the setInterval, so the updateTimer stops getting called
   clearInterval(timer);
   $('#moleDisplay').html("Game Over! Final Score: ");
+  $("#playAgain").show();
   $(".mole").hide();
   $("#timerBox").hide();
   restart();

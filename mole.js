@@ -119,6 +119,16 @@ function randomInt() {
 /**
  * What to do when the timer runs out
  */
+function displayWinMessage(){
+  var winMessage = $("<div></div>").text("Congratulations!");
+      winMessage.css({
+        fontSize: "48px",
+        textAlign: "center",
+        marginTop: "200px"
+      });
+      $("body").append(winMessage);
+}
+
 function gameOver() {
   // This cancels the setInterval, so the updateTimer stops getting called
   clearInterval(timer);
@@ -157,7 +167,7 @@ function startTimer() {
  * restarts the game, called from game over.
  */
 function restart(){
-  timeLeft = 5
+  timeLeft = 10
   count = 0;
   $("#startGame").show();
 }
